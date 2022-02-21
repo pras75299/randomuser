@@ -16,7 +16,11 @@ function App() {
   const [value, setValue] = useState("Ramdom person");
 
   const handleValue = (e) => {
-    console.log(e.target);
+    if (e.target.classList.contains("icon")) {
+      const newValue = e.target.dataset.label;
+      setTitle(newValue);
+      setValue(person[newValue]);
+    }
   };
 
   const getPerson = async () => {
